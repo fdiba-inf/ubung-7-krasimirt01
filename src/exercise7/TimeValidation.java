@@ -2,29 +2,35 @@ package exercise7;
 
 import java.util.Scanner;
 
+import javax.lang.model.util.ElementScanner6;
+
 public class TimeValidation {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter hours: ");
-        int hours = input.nextInt();
+    System.out.print("Enter hours: ");
+    int hours = input.nextInt();
 
-        System.out.print("Enter minutes: ");
-        int minutes = input.nextInt();
+    System.out.print("Enter minutes: ");
+    int minutes = input.nextInt();
 
-        boolean timeValid = false; // Call validation methods
-        System.out.println("Time valid: " + timeValid);
+    boolean timeValid = areHoursValid(hours) && areMinutesValid(minutes);
+    System.out.println("Time valid: " + timeValid);
+  }
+
+  public static boolean areHoursValid(int hours) {
+    if (hours < 0 || hours > 24) {
+      return false;
+    } else {
+      return true;
     }
+  }
 
-
-    public static boolean areHoursValid(int hours) {
-        // Implement method
-        return false;
+  public static boolean areMinutesValid(int minutes) {
+    if (minutes < 0 || minutes > 60) {
+      return false;
+    } else {
+      return true;
     }
-
-
-    public static boolean areMinutesValid(int minutes) {
-        // Implement method
-        return false;
-    }
+  }
 }
